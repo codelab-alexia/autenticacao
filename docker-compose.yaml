@@ -8,4 +8,12 @@ services:
     volumes:
       - /usr/src/app/node_modules
       - ./:/usr/src/app
+    depends_on:
+      - prometheus
 
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./prometheus.yaml:/etc/prometheus/prometheus.yml
