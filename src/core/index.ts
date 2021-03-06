@@ -1,9 +1,4 @@
-import { User } from './model/user';
-import { UserDataservice } from './adapters/user_data_service';
-import { CreateNewUser } from './behavior/create_new_user';
-
-export default {
-  User,
-  UserDataservice,
-  CreateNewUser,
-};
+export { User } from './model/user';
+export { UserDataservice } from './adapters/user_data_service';
+export { CreateNewUser } from './behavior/create_new_user';
+export { LoginUser } from './behavior/login_user';
