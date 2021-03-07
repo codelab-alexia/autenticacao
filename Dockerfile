@@ -1,6 +1,7 @@
 FROM node:alpine
 
 ENV PORT=3000 \
+    DOCS_PORT=8080 \
     HOST=0.0.0.0 \
     APP_PATH=/usr/src/app
 
@@ -12,6 +13,6 @@ RUN yarn install
 
 COPY . ./
 
-EXPOSE ${PORT}
+EXPOSE ${PORT} ${DOCS_PORT}
 
 CMD yarn dev

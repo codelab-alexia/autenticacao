@@ -17,3 +17,12 @@ services:
       - 9090:9090
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+
+  authdocs:
+    build: .
+    ports:
+      - 8080:8080
+    volumes:
+      - /usr/src/app/node_modules
+      - ./docs:/usr/src/app/docs
+    command: yarn docs:dev
