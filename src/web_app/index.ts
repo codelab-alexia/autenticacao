@@ -3,7 +3,7 @@ import * as proxy from 'express-http-proxy';
 
 import { MetricsManager } from '../metrics';
 
-import { UserDataservice, LoginUser } from '../core'
+import { UserDataservice, LoginUser } from '../core';
 
 import { InMemoryUserDataservice } from '../database/in_memory_user_data_service';
 
@@ -32,7 +32,7 @@ export class WebApp {
   start() {
     this._app.get('/test', (_, res, next) => {
       this._metricsMngr.increaseRequestCounter();
-      res.send('Hello, world!')
+      res.send('Hello, world!');
     });
 
     this._app.post('/login', async (req, res, next) => {
@@ -50,17 +50,13 @@ export class WebApp {
       } else {
         res.send({ error: 'authentication failed' });
       }
-    })
+    });
 
     this._app.get('/metrics', async (_, res) => {
       res.type(this._metricsMngr.contentType);
       res.send(await this._metricsMngr.getMetrics());
-    })
+    });
 
-    this._app.listen(
-      Number(this.config.port),
-      this.config.host,
-      () => console.log('WebApp running!')
-    )
+    this._app.listen(Number(this.config.port), this.config.host, () => console.log('WebApp running!'));
   }
 }

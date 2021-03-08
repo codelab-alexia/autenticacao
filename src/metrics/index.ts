@@ -9,7 +9,7 @@ export class MetricsManager {
     this.requestsCounter = new Counter({
       name: 'incomming_requests_total',
       help: 'Counts the total amount of incomming requests to the API Gateway',
-      registers: [this.registry]
+      registers: [this.registry],
     });
   }
 

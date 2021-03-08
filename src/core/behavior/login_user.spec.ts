@@ -6,14 +6,14 @@ describe(LoginUser, () => {
 
   beforeEach(() => {
     mockService = { findByEmail: jest.fn() };
-    login = new LoginUser(mockService)
-  })
+    login = new LoginUser(mockService);
+  });
 
   it('returns false when user not found', async () => {
-    mockService.findByEmail.mockRejectedValueOnce("User not found");
+    mockService.findByEmail.mockRejectedValueOnce('User not found');
 
-    expect(await login.run("email@mail.com", "password")).toBeFalsy();
-  })
+    expect(await login.run('email@mail.com', 'password')).toBeFalsy();
+  });
 
   it('returns false when password mismatch', async () => {
     const email = 'email@example.com';
@@ -22,11 +22,11 @@ describe(LoginUser, () => {
       id: '1',
       name: 'Example',
       email,
-      passwordDigest: '123456'
+      passwordDigest: '123456',
     });
 
     expect(await login.run(email, 'abcdef')).toBeFalsy();
-  })
+  });
 
   it('retuns true when email and password matches', async () => {
     const email = 'email@example.com';
@@ -40,6 +40,5 @@ describe(LoginUser, () => {
     });
 
     expect(await login.run(email, passwordDigest)).toBeTruthy();
-  })
-})
-
+  });
+});
