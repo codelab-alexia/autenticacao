@@ -6,7 +6,6 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - /usr/src/app/node_modules
       - ./:/usr/src/app
     depends_on:
       - prometheus
@@ -23,6 +22,5 @@ services:
     ports:
       - 8080:8080
     volumes:
-      - /usr/src/app/node_modules
       - ./docs:/usr/src/app/docs
     command: yarn docs:dev
