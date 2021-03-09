@@ -1,11 +1,12 @@
 import * as Express from 'express';
 import * as proxy from 'express-http-proxy';
+
 import { AuthenticationController } from './app/controllers/authentication';
 import { Request } from './app/dtos/request';
 import { Response } from './app/dtos/response';
 import { InMemoryUserDataservice } from './app/database/in_memory_user_data_service';
 
-import { MetricsManager } from './metrics';
+import { MetricsManager } from './app/metrics';
 
 const app = Express();
 
