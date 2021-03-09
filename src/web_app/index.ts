@@ -5,7 +5,7 @@ import { MetricsManager } from '../metrics';
 
 import { UserDataservice, LoginUser } from '../core';
 
-import { InMemoryUserDataservice } from '../database/in_memory_user_data_service';
+import { InMemoryUserDataservice } from '../app/database/in_memory_user_data_service';
 
 export interface WebAppConfig {
   port?: string;

@@ -1,4 +1,4 @@
-import { User, UserDataservice } from '../core';
+import { User, UserDataservice } from '../../core';
 
 export class InMemoryUserDataservice implements UserDataservice {
   private users: User[] = [];
