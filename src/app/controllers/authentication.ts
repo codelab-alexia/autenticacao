@@ -2,11 +2,13 @@ import { Request } from '../dtos/request';
 import { Response } from '../dtos/response';
 import { LoginUser } from '../../core';
 
+import { Context } from '../../';
+
 export class AuthenticationController {
   private _login: LoginUser;
 
-  constructor({ userDataservice }: any) {
-    this._login = new LoginUser(userDataservice);
+  constructor({ useCases: { loginUser } }: Context) {
+    this._login = loginUser;
   }
 
   async login({ body }: Request): Promise<Response> {
