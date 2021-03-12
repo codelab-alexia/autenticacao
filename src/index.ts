@@ -2,6 +2,10 @@ import * as Express from 'express';
 
 import { InMemoryUserDataservice } from './app/database/in_memory_user_data_service';
 
+import { LoginUser } from './core/behavior/login_user';
+
+import { MetricsManager } from './app/metrics';
+
 import { setupTestRouter } from './test_router';
 import { setupMetricsRouter } from './metrics_router';
 import { setupAuthenticationRouter } from './authentication_router';
