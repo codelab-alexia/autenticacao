@@ -11,7 +11,10 @@
     "lint:fix": "yarn lint:analyze --fix",
     "lint": "yarn lint:analyze",
     "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test:unit": "jest src",
+    "test:e2e": "jest e2e-tests",
+    "test:unit:watch": "yarn test:unit --watchAll",
+    "test:e2e:watch": "yarn test:e2e --watchAll",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
