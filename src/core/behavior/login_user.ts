@@ -1,4 +1,3 @@
-import { User } from '../model/user';
 import { UserDataservice } from '../adapters/user_data_service';
 
 export class LoginUser {

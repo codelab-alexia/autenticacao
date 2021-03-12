@@ -4,7 +4,7 @@ import { UserDataservice } from '../adapters/user_data_service';
 export class CreateNewUser {
   constructor(private userDataservice: UserDataservice) {}
 
-  run(id: string, name: string, email: string, passwordDigest: string) {
+  run(id: string, name: string, email: string, passwordDigest: string): void {
     const newUser = new User(id, name, email, passwordDigest);
     this.userDataservice.storeOne(newUser);
   }

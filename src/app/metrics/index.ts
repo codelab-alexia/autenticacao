@@ -13,15 +13,15 @@ export class MetricsManager {
     });
   }
 
-  increaseRequestCounter() {
+  increaseRequestCounter(): void {
     this.requestsCounter.inc();
   }
 
-  get contentType() {
+  get contentType(): string {
     return this.registry.contentType;
   }
 
-  async getMetrics() {
+  async getMetrics(): Promise<string> {
     return await this.registry.metrics();
   }
 }

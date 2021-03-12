@@ -1,6 +1,6 @@
 import { Request } from '../dtos/request';
 import { Response } from '../dtos/response';
-import { LoginUser, UserDataservice } from '../../core';
+import { LoginUser } from '../../core';
 
 export class AuthenticationController {
   private _login: LoginUser;
