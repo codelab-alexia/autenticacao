@@ -11,6 +11,7 @@
     "lint:fix": "yarn lint:analyze --fix",
     "lint": "yarn lint:analyze",
     "test": "jest",
+    "test:watch": "jest --watchAll",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
