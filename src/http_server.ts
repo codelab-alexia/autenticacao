@@ -10,12 +10,6 @@ import { setupTestRouter } from './test_router';
 import { setupMetricsRouter } from './metrics_router';
 import { setupAuthenticationRouter } from './authentication_router';
 
-export interface Context {
-  useCases: { [key: string]: any };
-  dataservices: { [key: string]: any };
-  metricsMngr: any;
-}
-
 const metricsMngr = new MetricsManager();
 
 const userDataservice = new InMemoryUserDataservice();
@@ -27,7 +21,7 @@ const context = {
   metricsMngr,
 };
 
-export function bootstrapHTTPServer(): Express {
+export function bootstrapHTTPServer(): any {
   const app = Express();
 
   app.use(Express.json());
