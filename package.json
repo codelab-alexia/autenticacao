@@ -11,7 +11,7 @@
     "lint:fix": "yarn lint:analyze --fix",
     "lint": "yarn lint:analyze",
     "test": "jest",
-    "test:unit": "jest src",
+    "test:unit": "jest .spec.ts",
     "test:e2e": "jest e2e-tests",
     "test:unit:watch": "yarn test:unit --watchAll",
     "test:e2e:watch": "yarn test:e2e --watchAll",
@@ -22,6 +22,7 @@
     "@types/express": "^4.17.11",
     "@types/express-http-proxy": "^1.6.1",
     "@types/jest": "^26.0.20",
+    "@types/jsonwebtoken": "^8.5.0",
     "@typescript-eslint/eslint-plugin": "^4.14.2",
     "@typescript-eslint/parser": "^4.14.2",
     "eslint": "^7.19.0",
@@ -41,6 +42,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-http-proxy": "^1.6.2",
+    "jsonwebtoken": "^8.5.1",
     "prom-client": "^13.1.0"
   }
 }
