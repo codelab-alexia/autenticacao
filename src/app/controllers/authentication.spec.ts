@@ -18,7 +18,7 @@ describe(AuthenticationController, () => {
 
   describe('/login', () => {
     it('returns response with error when login fails', async () => {
-      mockLoginUser.run.mockResolvedValueOnce(false);
+      mockLoginUser.run.mockResolvedValueOnce({ status: false });
 
       const {
         body: { error },
@@ -28,7 +28,7 @@ describe(AuthenticationController, () => {
     });
 
     it('returns response with token when login succeeds', async () => {
-      mockLoginUser.run.mockResolvedValueOnce(true);
+      mockLoginUser.run.mockResolvedValueOnce({ status: true, token: '12bhb123.123' });
 
       const {
         body: { token },

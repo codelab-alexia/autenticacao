@@ -14,14 +14,10 @@ export class AuthenticationController {
   async login({ body }: Request): Promise<Response> {
     const { email, password } = body;
 
-    const successfullyLoggedIn = await this._login.run(email, `--${password}--`);
+    const { status, token } = await this._login.run(email, `--${password}--`);
 
-    return successfullyLoggedIn
-      ? new Response({ token: this.generateToken(email) }, Response.STATUS.OK)
+    return status
+      ? new Response({ token }, Response.STATUS.OK)
       : new Response({ error: `Credentials don't match` }, Response.STATUS.NOT_FOUND);
-  }
-
-  private generateToken(payload: string): Promise<string> {
-    return new Promise((res) => res(`token-${payload}`));
   }
 }
