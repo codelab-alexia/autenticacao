@@ -1,35 +1,18 @@
 import * as Express from 'express';
 
-import { InMemoryUserDataservice } from './app/database/in_memory_user_data_service';
-import { JWTService } from './app/token';
-
-import { LoginUser } from './core/behavior/login_user';
-
-import { MetricsManager } from './app/metrics';
+import { Context } from '.';
 
 import { setupTestRouter } from './test_router';
 import { setupMetricsRouter } from './metrics_router';
 import { setupAuthenticationRouter } from './authentication_router';
 
-const metricsMngr = new MetricsManager();
-
-const userDataservice = new InMemoryUserDataservice();
-const tokenService = new JWTService('foo');
-const loginUser = new LoginUser(userDataservice, tokenService);
-
-const context = {
-  useCases: { loginUser },
-  dataservices: { userDataservice },
-  metricsMngr,
-};
-
-export function bootstrapHTTPServer(): any {
+export function bootstrapHTTPServer(context: Context): any {
   const app = Express();
 
   app.use(Express.json());
 
   app.use((req, _, next) => {
-    if (req.baseUrl !== '/metrics') metricsMngr.increaseRequestCounter();
+    if (req.baseUrl !== '/metrics') context.metricsMngr.increaseRequestCounter();
 
     next();
   });
