@@ -1,6 +1,7 @@
 import * as Express from 'express';
 
 import { Context } from '.';
+import { Request } from './app/dtos/request';
 import { Response } from './app/dtos/response';
 import { AuthenticationController } from './app/controllers/authentication';
 
