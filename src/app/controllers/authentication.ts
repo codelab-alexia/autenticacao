@@ -14,7 +14,7 @@ export class AuthenticationController {
   async login({ body }: Request): Promise<Response> {
     const { email, password } = body;
 
-    const { status, token } = await this._login.run(email, `--${password}--`);
+    const { status, token } = await this._login.run(email, password);
 
     return status
       ? new Response({ token }, Response.STATUS.OK)
